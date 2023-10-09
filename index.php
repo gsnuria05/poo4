@@ -54,7 +54,7 @@
 
 include('Humano.php');
 
-//CREACIÓN OBJETO (INSTANCIAR LAS CLASES)
+//CREACIÓN OBJETO (INSTANCIAR LAS CLASES MUJER Y HOMBRE)
 
 $mujer=new Mujer();
 $hombre=new Hombre();
