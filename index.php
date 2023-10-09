@@ -3,79 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio POO Individual 3</title>
+    <title>Ejercicio POO Individual 4 (Herrencia)</title>
 </head>
 <body>
 
 <form method="POST" action="">
+
     <table>
         <tr>            
         <tr>
             <td>
-                <label>Valor 1:</label>
-                <input type="number" name="numero1">
+                <label>Nombre:</label>
+                <input type="text" name="nombre">
             </td>
         </tr>
         <tr>            
         <tr>
             <td>
-                <label>Valor 2:</label>
-                <input type="number" name="numero2">
+                <label>Apellidos:</label>
+                <input type="text" name="apellidos">
             </td>
         </tr>
+        <tr>
+            <td>
+                <label>Edad:</label>
+                <input type="number" name="edad">
+            </td>
+        </tr>        
+        <tr>
+            <td>
+                <input type="radio" id="mujer" name="mujer" value="Mujer">
+                <label >Mujer</label><br>                
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="radio" id="hombre" name="hombre" value="Hombre">
+                <label >Hombre</label><br>                
+            </td>
+        </tr>
+        
     </table>
-    <input type="submit" name="boton1" value="Suma">
-    <input type="submit" name="boton2" value="Resta">
-    <input type="submit" name="boton3" value="Multiplicación">
-    <input type="submit" name="boton4" value="División">
+    <input type="submit" name="boton" value="Aceptar">
+
 </form>
 
 <?php
-//Llamar a la función
 
-include('Operaciones.php');
+//LLAMADA A LA FUNCIÓN
 
-//Definir variables
+include('Humano.php');
 
-$valor1=$_POST['numero1'];
-$valor2=$_POST['numero2'];
+//CREACIÓN OBJETO (INSTANCIAR LAS CLASES)
 
-//Crear un objeto ; Instanciar un atributo
-
-$suma=new Suma();
-$resta=new Resta();
-$multiplicacion=new Multiplicacion();
-$division=new Division();
+$mujer=new Mujer();
+$hombre=new Hombre();
 
 echo '<hr>';
 
-//SUMA
+//ASIGNAR PARÁMETROS A ATRIBUTOS MEDIANTE SET
 
-if(isset($_POST['boton1']))
+//Clase Mujer
+
+$mujer->setNombre($_POST['nombre']);
+$mujer->setApellidos($_POST['apellidos']);
+$mujer->setEdad($_POST['edad']);
+$mujer->setGenero($_POST['mujer']);
+
+//Clase Hombre
+
+$hombre->setNombre($_POST['nombre']);
+$hombre->setApellidos($_POST['apellidos']);
+$hombre->setEdad($_POST['edad']);
+$hombre->setGenero($_POST['hombre']);
+
+echo '<hr>';
+
+//LLAMAR A LOS GETS
+
+if(isset($_POST['mujer']))
 {
-    echo $suma->operacion($valor1,$valor2);
+    $mujer->descripcion($mujer);
+}
+elseif(isset($_POST['hombre']))
+{
+    $hombre->descripcion($hombre);
 }
 
-//RESTA
-
-elseif(isset($_POST['boton2']))
-{
-    echo $resta->operacion($valor1,$valor2);
-} 
-
-//MULTIPLICACIÓN
-
-elseif(isset($_POST['boton3']))
-{
-    echo $multiplicacion->operacion($valor1,$valor2);
-} 
-
-//DIVISIÓN
-
-elseif(isset($_POST['boton4']))
-{
-    echo $division->operacion($valor1,$valor2);
-}
 ?>
 
 </body>

@@ -1,107 +1,111 @@
 <?php
 
-class Operaciones 
+class Humano
 {
-	private $valor1;
-	private $valor2;	
+	private $nombre;
+	private $apellidos;	
+	private $edad;
+	private $genero;
 
-	/*
-	 Get the value of valor1
-	 
-	public function getValor1()
+	//CREACIÓN DE FUNCIÓN
+
+	public function descripcion($valor)
 	{
-		return $this->valor1;
+		echo '<h1>Descripción</h1>';
+		echo '<h2>Nombre: </h2>'.$valor->getNombre();
+   		echo '<h2>Apellidos: </h2>'.$valor->getApellidos();
+   		echo '<h2>Edad: </h2>'.$valor->getEdad().' años';
+    	echo '<h2>Género: </h2>'.$valor->getGenero();
 	}
 
-	
-	 Set the value of valor1
-	 
-	public function setValor1($valor1): self
+	//GETTERS AND SETTERS
+
+	/**
+	 * Get the value of nombre
+	 */
+	public function getNombre()
 	{
-		$this->valor1 = $valor1;
+		return $this->nombre;
+	}
+
+	/**
+	 * Set the value of nombre
+	 */
+	public function setNombre($nombre): self
+	{
+		$this->nombre = $nombre;
 
 		return $this;
 	}
 
-	
-	 Get the value of valor2
-	 
-	public function getValor2()
+	/**
+	 * Get the value of apellidos
+	 */
+	public function getApellidos()
 	{
-		return $this->valor2;
+		return $this->apellidos;
 	}
 
-	
-	Set the value of valor2
-	 
-	public function setValor2($valor2): self
+	/**
+	 * Set the value of apellidos
+	 */
+	public function setApellidos($apellidos): self
 	{
-		$this->valor2 = $valor2;
+		$this->apellidos = $apellidos;
 
 		return $this;
 	}
-	*/
 
-	public function cargar1($valor1)
+	/**
+	 * Get the value of edad
+	 */
+	public function getEdad()
 	{
-		$this->$valor1=$valor1;
-		return $valor1;
+		return $this->edad;
 	}
 
-	public function cargar2($valor2)
+	/**
+	 * Set the value of edad
+	 */
+	public function setEdad($edad): self
 	{
-		$this->$valor2=$valor2;
-		return $valor2;
+		$this->edad = $edad;
+
+		return $this;
 	}
+
+	/**
+	 * Get the value of genero
+	 */
+	public function getGenero()
+	{
+		return $this->genero;
+	}
+
+	/**
+	 * Set the value of genero
+	 */
+	public function setGenero($genero): self
+	{
+		$this->genero = $genero;
+
+		return $this;
+	}
+	
+}
+
+//CLASE MUJER
+
+class Mujer extends Humano
+{
 
 }
 
-//Clase Suma
+//CLASE HOMBRE
 
-class Suma extends Operaciones
+class Hombre extends Humano
 {
-	public function operacion($valor1,$valor2)
-	{
-		$valor1 = $valor1;
-		$valor2 = $valor2;
-		return $valor1 + $valor2;
-	}
-}
-
-//Clase Resta
-
-class Resta extends Operaciones
-{
-	public function operacion($valor1,$valor2)
-	{
-		$valor1 = $valor1;
-		$valor2 = $valor2;
-		return $valor1 - $valor2;
-	}
-}
-
-//Clase Multiplicacion
-
-class Multiplicacion extends Operaciones
-{
-	public function operacion($valor1,$valor2)
-	{
-		$valor1 = $valor1;
-		$valor2 = $valor2;
-		return $valor1 * $valor2;
-	}
-}
-
-//Clase División
-
-class Division extends Operaciones
-{
-	public function operacion($valor1,$valor2)
-	{
-		$valor1 = $valor1;
-		$valor2 = $valor2;
-		return $valor1 / $valor2;
-	}
+	
 }
 
 ?>
